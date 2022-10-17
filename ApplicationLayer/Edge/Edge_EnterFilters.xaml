@@ -1,0 +1,706 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Mobile_EnterFilters" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_filtersDict" Type="InArgument(scg:Dictionary(x:String, scg:List(x:String)))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>566.6666666666666,4061.333333333334</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Mobile_EnterFilters_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="56">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="76">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Mobile_EnterFilters" sap:VirtualizedContainerService.HintSize="476.6666666666667,3996.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - EnterFilters" sap:VirtualizedContainerService.HintSize="434.6666666666667,104.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;EnterFilters Starting&quot;]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser - mobile.de more filters" sap:VirtualizedContainerService.HintSize="434.6666666666667,3762" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="4537afbe0ae47e12baabf6f56e4f7bba" Selector="&lt;html app='msedge.exe' title='Car search*' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400.6666666666667,3606" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Car Type&quot;)(0).ToString]" Name="estateCar" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Car Type&quot;)(1).ToString]" Name="saloon" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Car Type&quot;)(2).ToString]" Name="sportsCar" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Fuel Type&quot;)(0).ToString]" Name="diesel" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Fuel Type&quot;)(1).ToString]" Name="petrol" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Interior material&quot;)(0).ToString]" Name="alcantara" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Interior material&quot;)(1).ToString]" Name="fullLeather" />
+              <Variable x:TypeArguments="x:String" Default="[in_filtersDict(&quot;Interior material&quot;)(2).ToString]" Name="partLeather" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Make" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="[in_filtersDict(&quot;Make&quot;)(0).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Any</x:String>
+                  <x:String>Abarth</x:String>
+                  <x:String>AC</x:String>
+                  <x:String>Acura</x:String>
+                  <x:String>Aiways</x:String>
+                  <x:String>Aixam</x:String>
+                  <x:String>Alfa Romeo</x:String>
+                  <x:String>ALPINA</x:String>
+                  <x:String>Artega</x:String>
+                  <x:String>Asia Motors</x:String>
+                  <x:String>Aston Martin</x:String>
+                  <x:String>Audi</x:String>
+                  <x:String>Austin</x:String>
+                  <x:String>Austin Healey</x:String>
+                  <x:String>BAIC</x:String>
+                  <x:String>Bentley</x:String>
+                  <x:String>BMW</x:String>
+                  <x:String>Borgward</x:String>
+                  <x:String>Brilliance</x:String>
+                  <x:String>Bugatti</x:String>
+                  <x:String>Buick</x:String>
+                  <x:String>Cadillac</x:String>
+                  <x:String>Casalini</x:String>
+                  <x:String>Caterham</x:String>
+                  <x:String>Chatenet</x:String>
+                  <x:String>Chevrolet</x:String>
+                  <x:String>Chrysler</x:String>
+                  <x:String>Citroën</x:String>
+                  <x:String>Cobra</x:String>
+                  <x:String>Corvette</x:String>
+                  <x:String>Cupra</x:String>
+                  <x:String>Dacia</x:String>
+                  <x:String>Daewoo</x:String>
+                  <x:String>Daihatsu</x:String>
+                  <x:String>DeTomaso</x:String>
+                  <x:String>DFSK</x:String>
+                  <x:String>Dodge</x:String>
+                  <x:String>Donkervoort</x:String>
+                  <x:String>DS Automobiles</x:String>
+                  <x:String>e.GO</x:String>
+                  <x:String>Elaris</x:String>
+                  <x:String>Ferrari</x:String>
+                  <x:String>Fiat</x:String>
+                  <x:String>Fisker</x:String>
+                  <x:String>Ford</x:String>
+                  <x:String>GAC Gonow</x:String>
+                  <x:String>Gemballa</x:String>
+                  <x:String>Genesis</x:String>
+                  <x:String>GMC</x:String>
+                  <x:String>Grecav</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ba1d05e4-f031-4138-b21f-ad4304303de7" InformativeScreenshot="4187b9281c89faa402fdd702de1a873f" Selector="&lt;webctrl tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Model" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="[in_filtersDict(&quot;Model&quot;)(0).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Any</x:String>
+                  <x:String>1 Series</x:String>
+                  <x:String>    114</x:String>
+                  <x:String>    116</x:String>
+                  <x:String>    118</x:String>
+                  <x:String>    120</x:String>
+                  <x:String>    123</x:String>
+                  <x:String>    125</x:String>
+                  <x:String>    128</x:String>
+                  <x:String>    130</x:String>
+                  <x:String>    135</x:String>
+                  <x:String>    1er M Coupé</x:String>
+                  <x:String>2002</x:String>
+                  <x:String>2 Series</x:String>
+                  <x:String>    214 Active Tourer</x:String>
+                  <x:String>    214 Gran Tourer</x:String>
+                  <x:String>    216</x:String>
+                  <x:String>    216 Active Tourer</x:String>
+                  <x:String>    216 Gran Tourer</x:String>
+                  <x:String>    218</x:String>
+                  <x:String>    218 Active Tourer</x:String>
+                  <x:String>    218 Gran Tourer</x:String>
+                  <x:String>    220</x:String>
+                  <x:String>    220 Active Tourer</x:String>
+                  <x:String>    220 Gran Tourer</x:String>
+                  <x:String>    223 Active Tourer</x:String>
+                  <x:String>    225</x:String>
+                  <x:String>    225 Active Tourer</x:String>
+                  <x:String>    228</x:String>
+                  <x:String>    230</x:String>
+                  <x:String>    2er Gran Coupé</x:String>
+                  <x:String>3 Series</x:String>
+                  <x:String>    315</x:String>
+                  <x:String>    316</x:String>
+                  <x:String>    318</x:String>
+                  <x:String>    318 Gran Turismo</x:String>
+                  <x:String>    320</x:String>
+                  <x:String>    320 Gran Turismo</x:String>
+                  <x:String>    323</x:String>
+                  <x:String>    324</x:String>
+                  <x:String>    325</x:String>
+                  <x:String>    325 Gran Turismo</x:String>
+                  <x:String>    328</x:String>
+                  <x:String>    328 Gran Turismo</x:String>
+                  <x:String>    330</x:String>
+                  <x:String>    330 Gran Turismo</x:String>
+                  <x:String>    335</x:String>
+                  <x:String>    335 Gran Turismo</x:String>
+                  <x:String>    340</x:String>
+                  <x:String>    340 Gran Turismo</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="04f24bf0-d1a0-4ff5-a7f0-b4c7f67587d9" InformativeScreenshot="782bdbf18f9f48261de8a37856231e28" Selector="&lt;webctrl name='makeModelVariant1.modelId' tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Add another vehicle" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0db9cfa5-680b-4fc0-a043-a6675150cc8d" InformativeScreenshot="cd295e5627f6b6bb0295af9d60c0cefb" Selector="&lt;webctrl parentid='form-dsp' tag='A' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Make car2" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="[in_filtersDict(&quot;Make&quot;)(1).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Any</x:String>
+                  <x:String>Abarth</x:String>
+                  <x:String>AC</x:String>
+                  <x:String>Acura</x:String>
+                  <x:String>Aiways</x:String>
+                  <x:String>Aixam</x:String>
+                  <x:String>Alfa Romeo</x:String>
+                  <x:String>ALPINA</x:String>
+                  <x:String>Artega</x:String>
+                  <x:String>Asia Motors</x:String>
+                  <x:String>Aston Martin</x:String>
+                  <x:String>Audi</x:String>
+                  <x:String>Austin</x:String>
+                  <x:String>Austin Healey</x:String>
+                  <x:String>BAIC</x:String>
+                  <x:String>Bentley</x:String>
+                  <x:String>BMW</x:String>
+                  <x:String>Borgward</x:String>
+                  <x:String>Brilliance</x:String>
+                  <x:String>Bugatti</x:String>
+                  <x:String>Buick</x:String>
+                  <x:String>Cadillac</x:String>
+                  <x:String>Casalini</x:String>
+                  <x:String>Caterham</x:String>
+                  <x:String>Chatenet</x:String>
+                  <x:String>Chevrolet</x:String>
+                  <x:String>Chrysler</x:String>
+                  <x:String>Citroën</x:String>
+                  <x:String>Cobra</x:String>
+                  <x:String>Corvette</x:String>
+                  <x:String>Cupra</x:String>
+                  <x:String>Dacia</x:String>
+                  <x:String>Daewoo</x:String>
+                  <x:String>Daihatsu</x:String>
+                  <x:String>DeTomaso</x:String>
+                  <x:String>DFSK</x:String>
+                  <x:String>Dodge</x:String>
+                  <x:String>Donkervoort</x:String>
+                  <x:String>DS Automobiles</x:String>
+                  <x:String>e.GO</x:String>
+                  <x:String>Elaris</x:String>
+                  <x:String>Ferrari</x:String>
+                  <x:String>Fiat</x:String>
+                  <x:String>Fisker</x:String>
+                  <x:String>Ford</x:String>
+                  <x:String>GAC Gonow</x:String>
+                  <x:String>Gemballa</x:String>
+                  <x:String>Genesis</x:String>
+                  <x:String>GMC</x:String>
+                  <x:String>Grecav</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="98fa0728-cacc-431a-907e-cc4065c59d37" InformativeScreenshot="4cab99ed13a3b600fdde9e600794e570" Selector="&lt;webctrl name='makeModelVariant2.makeId' tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Model car2" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="[in_filtersDict(&quot;Model&quot;)(1).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Any</x:String>
+                  <x:String>100</x:String>
+                  <x:String>200</x:String>
+                  <x:String>80</x:String>
+                  <x:String>90</x:String>
+                  <x:String>A1</x:String>
+                  <x:String>A2</x:String>
+                  <x:String>A3</x:String>
+                  <x:String>A4</x:String>
+                  <x:String>A4 Allroad</x:String>
+                  <x:String>A5</x:String>
+                  <x:String>A6</x:String>
+                  <x:String>A6 Allroad</x:String>
+                  <x:String>A7</x:String>
+                  <x:String>A8</x:String>
+                  <x:String>Cabriolet</x:String>
+                  <x:String>Coupé</x:String>
+                  <x:String>e-tron</x:String>
+                  <x:String>Q1</x:String>
+                  <x:String>Q2</x:String>
+                  <x:String>Q3</x:String>
+                  <x:String>Q4</x:String>
+                  <x:String>Q5</x:String>
+                  <x:String>Q7</x:String>
+                  <x:String>Q8</x:String>
+                  <x:String>quattro</x:String>
+                  <x:String>R8</x:String>
+                  <x:String>RS2</x:String>
+                  <x:String>RS3</x:String>
+                  <x:String>RS4</x:String>
+                  <x:String>RS5</x:String>
+                  <x:String>RS6</x:String>
+                  <x:String>RS7</x:String>
+                  <x:String>RSQ3</x:String>
+                  <x:String>RSQ8</x:String>
+                  <x:String>S1</x:String>
+                  <x:String>S2</x:String>
+                  <x:String>S3</x:String>
+                  <x:String>S4</x:String>
+                  <x:String>S5</x:String>
+                  <x:String>S6</x:String>
+                  <x:String>S7</x:String>
+                  <x:String>S8</x:String>
+                  <x:String>SQ2</x:String>
+                  <x:String>SQ5</x:String>
+                  <x:String>SQ7</x:String>
+                  <x:String>SQ8</x:String>
+                  <x:String>TT (alle)</x:String>
+                  <x:String>    TT</x:String>
+                  <x:String>    TT RS</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="04f24bf0-d1a0-4ff5-a7f0-b4c7f67587d9" InformativeScreenshot="6d47720f383fcbb86d29ef64bcc3e12e" Selector="&lt;webctrl name='makeModelVariant2.modelId' tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Sports Car/Coupe" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b597f7fb-a00d-48fe-bde0-c62894259cd6" InformativeScreenshot="4cc9f8d149934571039a7f8af2aa5a8a" Selector="[string.Format(&quot;&lt;webctrl class='category-label' parentid='form-dsp' tag='LABEL' innertext='{0}' /&gt;&quot;, sportsCar)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Saloon" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b597f7fb-a00d-48fe-bde0-c62894259cd6" InformativeScreenshot="4cc9f8d149934571039a7f8af2aa5a8a" Selector="[string.Format(&quot;&lt;webctrl class='category-label' parentid='form-dsp' tag='LABEL' innertext='{0}' /&gt;&quot;, saloon)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Estate Car" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b597f7fb-a00d-48fe-bde0-c62894259cd6" InformativeScreenshot="4cc9f8d149934571039a7f8af2aa5a8a" Selector="[string.Format(&quot;&lt;webctrl class='category-label' parentid='form-dsp' tag='LABEL' innertext='{0}' /&gt;&quot;, estateCar)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Price Up To" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[System.Text.RegularExpressions.Regex.Match(in_filtersDict(&quot;Price&quot;)(0), &quot;[0-9]+&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bdf57497-7908-4a93-bd33-6942a9f91ff8" InformativeScreenshot="8caced05ffa5feead7fb68887f193b98" Selector="&lt;webctrl idx='2' parentid='payment-filters' tag='INPUT' type='text' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into first registration - from" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[System.Text.RegularExpressions.Regex.Match(in_filtersDict(&quot;First registration (date)&quot;)(0), &quot;[0-9]+&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2b33ae10-2262-49c4-bdaa-0ecdb8c5bef8" InformativeScreenshot="239a6b32e923b477c5853eb2ab9b67c0" Selector="&lt;webctrl id='minFirstRegistrationDate' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Kilometer - To" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[System.Text.RegularExpressions.Regex.Match(in_filtersDict(&quot;Kilometre&quot;)(0), &quot;[0-9]+&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a1473b3-5f1a-4ccc-a059-d6cdaa02c35d" InformativeScreenshot="1562ab5c6db87ec3e795eaa480fe6f92" Selector="&lt;webctrl id='maxMileage' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Diesel" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb439e75-7629-439b-a112-754f95dfbfc3" InformativeScreenshot="1f87bd34344346ec7aa86137ae25f743" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' parentid='form-dsp' tag='SPAN' /&gt;&quot;, diesel)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Petrol" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb439e75-7629-439b-a112-754f95dfbfc3" InformativeScreenshot="1f87bd34344346ec7aa86137ae25f743" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' parentid='form-dsp' tag='SPAN' /&gt;&quot;, petrol)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Power To" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[System.Text.RegularExpressions.Regex.Match(in_filtersDict(&quot;Power&quot;)(0), &quot;[0-9]+&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20dc6e86-63ba-4769-b80e-df9244b5e555" InformativeScreenshot="bf623eeef76be4208959fa508c892963" Selector="&lt;webctrl id='maxPowerAsArray' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into Max Cubic Capacity" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[System.Text.RegularExpressions.Regex.Match(in_filtersDict(&quot;Cubic capacity&quot;)(0), &quot;[0-9]+&quot;).ToString]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bab38ee7-22ee-4661-b46a-2b1ad00a2a63" InformativeScreenshot="c6697b067e774ddcf5b0aa6b8375e937" Selector="&lt;webctrl id='maxCubicCapacity' tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Manual Gearbox" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="77a5836e-6e1b-4fa5-9a1d-9aea0549c152" InformativeScreenshot="86d63c936c585d745241d730829b628b" Selector="&lt;webctrl aaname='Manual gearbox' parentid='form-dsp' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Select 4 Green" sap:VirtualizedContainerService.HintSize="358.6666666666667,144" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="[in_filtersDict(&quot;Emissions Sticker&quot;)(0).ToString]">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="8">
+                  <x:String>Any</x:String>
+                  <x:String>1 (None)</x:String>
+                  <x:String>2 (Red)</x:String>
+                  <x:String>3 (Yellow)</x:String>
+                  <x:String>4 (Green)</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fe64e483-3246-45e6-9681-001d87a59f26" InformativeScreenshot="01e78ebd7493d4cfd44da7a70204b468" Selector="&lt;webctrl id='emissionsSticker-ds' tag='SELECT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Alcantara" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="42bdb047-530a-4f18-8806-7822a34109ae" InformativeScreenshot="6cccc009775efb179f35ddff9bff8185" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' parentid='form-dsp' tag='SPAN' /&gt;&quot;, alcantara)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Full Leather" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d0940195-18fa-4bd6-b9ae-fa6f7e03f354" InformativeScreenshot="6cccc009775efb179f35ddff9bff8185" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' parentid='form-dsp' tag='SPAN' /&gt;&quot;, fullLeather)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Part Leather" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b253c6e-4958-4ad2-9ddb-e4efcb064484" InformativeScreenshot="6cccc009775efb179f35ddff9bff8185" Selector="[string.Format(&quot;&lt;webctrl aaname='{0}' parentid='form-dsp' tag='SPAN' /&gt;&quot;, partLeather)]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Results" sap:VirtualizedContainerService.HintSize="358.6666666666667,116" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9c96f1e6-7e1f-4725-a966-5b2d7d8089f0" InformativeScreenshot="751930858fd3547e73782f056df5fcdb" Selector="&lt;webctrl id='dsp-lower-search-btn' tag='BUTTON' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
